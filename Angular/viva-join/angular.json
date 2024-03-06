@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "viva-join": {
+    "viva-join2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/viva-join",
+            "outputPath": "dist/viva-join2",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "viva-join:build:production"
+              "buildTarget": "viva-join2:build:production"
             },
             "development": {
-              "buildTarget": "viva-join:build:development"
+              "buildTarget": "viva-join2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "viva-join:build"
+            "buildTarget": "viva-join2:build"
           }
         },
         "test": {
@@ -109,8 +109,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "54ee1c6a-2640-4ec3-ae50-177519075002"
   }
 }

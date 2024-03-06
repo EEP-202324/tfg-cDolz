@@ -1,5 +1,5 @@
 {
-  "name": "viva-join",
+  "name": "viva-join2",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:viva-join": "node dist/viva-join/server/server.mjs"
+    "serve:ssr:viva-join2": "node dist/viva-join2/server/server.mjs"
   },
   "private": true,
   "dependencies": {
