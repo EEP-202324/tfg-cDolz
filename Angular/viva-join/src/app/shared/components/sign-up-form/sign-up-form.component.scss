@@ -1,17 +1,20 @@
-#login-form-container{
+#sign-up-form-container{
     background-color: rgba(255, 166, 0, 0.151);
-    width: 30%;
+    width: 35%;
     border: 2px solid rgb(255, 136, 0);
     border-radius: 12px;
 }
-#login-form-container input{
+#sign-up-form-container input{
     outline: none;
     border: 2px solid rgb(192, 192, 192);
     margin-top: 20px;
     padding: 10px 0 10px 8px;    
     border-radius: 12px;
 }
-#login-form-container input:focus{
+#sign-up-form-container input:first-child{
+    margin-right: 8px;
+}
+#sign-up-form-container input:focus{
     border: 2px solid rgb(255, 136, 0);    
 }
 #login-button{
