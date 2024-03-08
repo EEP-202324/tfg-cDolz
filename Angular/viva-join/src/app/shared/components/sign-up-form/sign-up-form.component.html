@@ -1,10 +1,21 @@
-<div class="container row justify-content-center" id="sign-up-form-container">    
-    <input class="col-5" type="text" placeholder="Nombre">
-    <input class="col-6" type="text" placeholder="Apellidos">
+<div class="container row justify-content-center" id="sign-up-form-container">
+    <div class="col-11 row justify-content-between">
+        <input class="col-md-auto"  id="name" type="text" placeholder="Nombre">
+        <input class="col" type="text" placeholder="Apellidos">
+    </div>        
     <input class="col-11" type="text" placeholder="Correo electrónico">
-    <input class="col-11" type="password" placeholder="contraseña">
-    <button class="col-11" id="login-button">Iniciar sesión</button>       
-    <a href="" class="text-center">¿Has olvidado la contraseña?</a>    
-    <hr> 
+    <input class="col-11" type="password" placeholder="Contraseña">
+    <input class="col-11" type="password" placeholder="Repetir contraseña">
+    <div class="col-11 row justify-content-between" id="birth-date">
+        <select class="col-md-auto" id="days" name="day">
+            <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+        </select>
+        <select class="col-md-auto" id="months" name="month">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+        </select>
+        <select class="col-md-auto" id="years" name="year">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+        </select>
+    </div>
     <button class="col-8" id="sign-up-button">Registrarse</button>
 </div>

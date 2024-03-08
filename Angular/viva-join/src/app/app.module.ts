@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 
 import { LoginModule } from './pages/common/login/login.module';
 import { SignUpModule } from './pages/common/sign-up/sign-up.module';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
+    NavbarComponent,    
   ],
   imports: [
     BrowserModule,
