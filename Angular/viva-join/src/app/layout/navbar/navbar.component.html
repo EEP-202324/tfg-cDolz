@@ -1,1 +1,5 @@
-<p>navbar works!</p>
+<nav class="container">
+    <ul class="row justify-content-center" id="navbar-list">
+        <li *ngFor="let content of navBarContent" class="col text-center"><a href="">{{content}}</a></li>        
+    </ul>
+</nav>

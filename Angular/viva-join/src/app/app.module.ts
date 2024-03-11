@@ -5,18 +5,18 @@ import { AppComponent } from './app.component';
 
 import { LoginModule } from './pages/common/login/login.module';
 import { SignUpModule } from './pages/common/sign-up/sign-up.module';
-import { NavbarComponent } from './layout/navbar/navbar.component';
+import { HomePageModule } from './pages/home-page/home-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,    
+    AppComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    SignUpModule
+    SignUpModule,
+    HomePageModule
   ],
   providers: [
     provideClientHydration()

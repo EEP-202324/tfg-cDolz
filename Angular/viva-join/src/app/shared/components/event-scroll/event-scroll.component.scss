@@ -1,0 +1,21 @@
+#external-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+#container {
+  padding: 0;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
