@@ -1,8 +1,8 @@
-<div id="external-container">
-  <div id="container">
-    <a href="" *ngFor="let event of events">
-      <img src="assets\images\imagenPrueba.jpeg" alt="" />
-      <p>Suuu</p>
-    </a>
-  </div>
-</div>
+<swiper-container slides-per-view="6">
+  <swiper-slide *ngFor="let event of events">
+    <img src="assets\images\imagenPrueba.jpeg" alt="" />
+    <div>
+      <span> {{ event }} </span>
+    </div>    
+  </swiper-slide>
+</swiper-container>
