@@ -1,8 +1,13 @@
-<swiper-container slides-per-view="6">
-  <swiper-slide *ngFor="let event of events">
-    <img src="assets\images\imagenPrueba.jpeg" alt="" />
-    <div>
-      <span> {{ event }} </span>
-    </div>    
+<swiper-container
+  slides-per-view="auto"
+  slides-per-group="4"
+  speed="700"
+  navigation="true"
+  allow-touch-move="false">
+  <swiper-slide *ngFor="let event of events; let i = index">
+    <a href="">
+      <img src="assets\images\imagenPrueba.jpeg" alt="" />
+      <span> {{ event }} </span>      
+    </a>
   </swiper-slide>
 </swiper-container>
