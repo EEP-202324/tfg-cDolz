@@ -1,16 +1,19 @@
-<swiper-container
-  (reachEnd)="slide($event)"
-  events-prefix="swiper-"
+<!-- <swiper-container      
   slides-per-view="auto"
   slides-per-group="4"
   speed="700"
   navigation="true"
-  allow-touch-move="false"
->
+  allow-touch-move="false">
   <swiper-slide *ngFor="let event of events; let i = index">
     <a href="">
       <img src="assets\images\imagenPrueba.jpeg" alt="" />
       <span> {{ event }} </span>
     </a>
   </swiper-slide>
-</swiper-container>
+</swiper-container> -->
+
+<swiper [slidesPerView]="3" [spaceBetween]="50">
+  <ng-template swiperSlide>Slide 1</ng-template>
+  <ng-template swiperSlide>Slide 2</ng-template>
+  <ng-template swiperSlide>Slide 3</ng-template>
+</swiper>

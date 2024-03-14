@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './pages/common/login/login.module';
 import { SignUpModule } from './pages/common/sign-up/sign-up.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { HomePageModule } from './pages/home-page/home-page.module';
     AppRoutingModule,
     LoginModule,
     SignUpModule,
-    HomePageModule
-  ],
+    HomePageModule,
+    SharedModule
+  ],  
   providers: [
     provideClientHydration()
   ],
