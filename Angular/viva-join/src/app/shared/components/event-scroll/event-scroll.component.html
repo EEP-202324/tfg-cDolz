@@ -12,8 +12,18 @@
   </swiper-slide>
 </swiper-container> -->
 
-<swiper [slidesPerView]="3" [spaceBetween]="50">
-  <ng-template swiperSlide>Slide 1</ng-template>
-  <ng-template swiperSlide>Slide 2</ng-template>
-  <ng-template swiperSlide>Slide 3</ng-template>
+<swiper
+  #swiper
+  [slidesPerView]="'auto'"
+  [navigation]="true"
+  [slidesPerGroup]="4"
+  [allowTouchMove]="false"
+  [speed]="700"
+>
+  <ng-template swiperSlide *ngFor="let event of events">
+    <a href="">
+      <img src="assets\images\imagenPrueba.jpeg" alt="" />
+      <span> {{ event }} </span>
+    </a>   
+  </ng-template>
 </swiper>
