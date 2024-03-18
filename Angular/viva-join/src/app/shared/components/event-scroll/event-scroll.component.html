@@ -13,14 +13,13 @@
 </swiper-container> -->
 
 <swiper
-  #swiper
   [slidesPerView]="'auto'"
   [navigation]="true"
   [slidesPerGroup]="4"
   [allowTouchMove]="false"
   [speed]="700"
 >
-  <ng-template swiperSlide *ngFor="let event of events">
+  <ng-template swiperSlide *ngFor="let event of events" class=".custom-swiper-slide">
     <a href="">
       <img src="assets\images\imagenPrueba.jpeg" alt="" />
       <span> {{ event }} </span>
