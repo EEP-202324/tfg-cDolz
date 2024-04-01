@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-shared-sign-up-form',
@@ -7,7 +7,16 @@ import { Component } from '@angular/core';
 })
 export class SignUpFormComponent {
 
-  currentYear: number = new Date().getFullYear();
+  @ViewChild('nameInput') nameInput!: string;
+  @ViewChild('surnameInput') surnameInput!: string;
+  @ViewChild('emailInput') emailInput!: string;
+  @ViewChild('passwordInput') passwordInput!: string;
+  @ViewChild('repeatPasswordInput') repeatPasswordInput!: string;
+  @ViewChild('dayOption') dayOption!: number;
+  @ViewChild('monthOption') monthOption!: string;
+  @ViewChild('yearOption') yearOption!: number;
+
+  currentYear: number = new Date().getFullYear();  
 
   days: number[] = Array.from({length: 31}, (_, i) => i + 1);
   months: string[] = [
@@ -17,4 +26,8 @@ export class SignUpFormComponent {
   ];
   
   years: number[] = Array.from({length: 120}, (_, i) => this.currentYear - i);
+
+  onSubmit(){
+
+  }
 }

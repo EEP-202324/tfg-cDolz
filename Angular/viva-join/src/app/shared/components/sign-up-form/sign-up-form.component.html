@@ -1,21 +1,21 @@
 <div class="container row justify-content-center" id="sign-up-form-container">
     <div class="col-11 row justify-content-between">
-        <input class="col-md-auto"  id="name" type="text" placeholder="Nombre">
-        <input class="col" type="text" placeholder="Apellidos">
+        <input class="col-md-auto"  id="name" type="text" placeholder="Nombre" #nameInput>
+        <input class="col" type="text" placeholder="Apellidos" #surnameInput>
     </div>        
-    <input class="col-11" type="text" placeholder="Correo electrónico">
-    <input class="col-11" type="password" placeholder="Contraseña">
-    <input class="col-11" type="password" placeholder="Repetir contraseña">
+    <input class="col-11" type="text" placeholder="Correo electrónico" #emailInput>
+    <input class="col-11" type="password" placeholder="Contraseña" #passwordInput>
+    <input class="col-11" type="password" placeholder="Repetir contraseña" #repeatPasswordInput>
     <div class="col-11 row justify-content-between" id="birth-date">
-        <select class="col-md-auto" id="days" name="day">
+        <select class="col-md-auto" id="days" name="day" #dayOption>
             <option *ngFor="let day of days" [value]="day">{{ day }}</option>
         </select>
-        <select class="col-md-auto" id="months" name="month">
+        <select class="col-md-auto" id="months" name="month" #monthOption>
             <option *ngFor="let month of months" [value]="month">{{ month }}</option>
         </select>
-        <select class="col-md-auto" id="years" name="year">
+        <select class="col-md-auto" id="years" name="year" #yearOption>
             <option *ngFor="let year of years" [value]="year">{{ year }}</option>
         </select>
     </div>
-    <button class="col-8" id="sign-up-button">Registrarse</button>
+    <button class="col-8" id="sign-up-button" (click)="onSubmit()">Registrarse</button>
 </div>
