@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/login
+
+###
+
+POST http://localhost:3000/api/sign-up
+Content-Type: application/json
+
+{    
+    "name": "Laura",
+    "surname": "Barros Carbajal",
+    "email": "laura_carbajal@gmail.com",
+    "password": "654321",
+    "birthDate": "2-Mayo-1998"
+}

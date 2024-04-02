@@ -5,16 +5,7 @@ import { Component, ViewChild } from '@angular/core';
   templateUrl: './sign-up-form.component.html',
   styleUrl: './sign-up-form.component.scss'
 })
-export class SignUpFormComponent {
-
-  @ViewChild('nameInput') nameInput!: string;
-  @ViewChild('surnameInput') surnameInput!: string;
-  @ViewChild('emailInput') emailInput!: string;
-  @ViewChild('passwordInput') passwordInput!: string;
-  @ViewChild('repeatPasswordInput') repeatPasswordInput!: string;
-  @ViewChild('dayOption') dayOption!: number;
-  @ViewChild('monthOption') monthOption!: string;
-  @ViewChild('yearOption') yearOption!: number;
+export class SignUpFormComponent {  
 
   currentYear: number = new Date().getFullYear();  
 

@@ -2,10 +2,10 @@ const router = require('express').Router();
 
 const User = require('../../models/user.model');
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const users = await User.find();
-        res.json(users);
+        const user = await User.create(req.body);
+        res.json(user);
     } catch (error) {
         res.json({ error: error.message });
     }
