@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-shared-sign-up-form',
@@ -7,18 +7,20 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class SignUpFormComponent {  
 
-  currentYear: number = new Date().getFullYear();  
+  // cojo el año actual
+  currentYear: number = new Date().getFullYear();
 
-  days: number[] = Array.from({length: 31}, (_, i) => i + 1);
+  // array del 1 al 31 para select de los días
+  days: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
+
+  // array para el select de los meses
   months: string[] = [
-    'Enero','Febrero','Marzo','Abril',
-    'Mayo','Junio','Julio','Agosto',
-    'Septiembre','Octubre','Noviembre','Diciembre'
+    'Enero', 'Febrero', 'Marzo', 'Abril',
+    'Mayo', 'Junio', 'Julio', 'Agosto',
+    'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
   ];
+
+  // array del año actual -120 años para el select
+  years: number[] = Array.from({ length: 120 }, (_, i) => this.currentYear - i);
   
-  years: number[] = Array.from({length: 120}, (_, i) => this.currentYear - i);
-
-  onSubmit(){
-
-  }
 }

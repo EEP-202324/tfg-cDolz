@@ -1,14 +1,20 @@
-GET http://localhost:3000/api/login
-
-###
-
-POST http://localhost:3000/api/sign-up
+POST http://localhost:3000/api/users/sign-up
 Content-Type: application/json
 
 {    
-    "name": "Laura",
-    "surname": "Barros Carbajal",
-    "email": "laura_carbajal@gmail.com",
-    "password": "654321",
-    "birthDate": "2-Mayo-1998"
+    "email": "carlosdolzm@gmail.com",
+    "password": "123456",
+    "name": "Carlos",
+    "surname": "Dolz Martín",
+    "birthDate": "12-Septiembre-1994"
+}
+
+###
+
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{        
+    "email": "carlosdolzm@gmail.com",
+    "password": "123456"
 }
