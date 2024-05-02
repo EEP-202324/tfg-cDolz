@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { UserLoginData } from '../../../models/user.model';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-shared-login-form',
@@ -7,12 +12,6 @@ import { Component } from '@angular/core';
 })
 
 export class LoginFormComponent {
-  constructor(private router: Router){
-
-  }
-  redirectToSignUp() {
-    this.router.navigate(['/sign-up']);
-  }
 
   form!: FormGroup;
   login!: UserLoginData;

@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { LoginModule } from './pages/common/login/login.module';
-import { SignUpModule } from './pages/common/sign-up/sign-up.module';
-import { HomePageModule } from './pages/home-page/home-page.module';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
@@ -19,13 +16,19 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule,
-    SignUpModule,
-    HomePageModule,
-    SharedModule
+    PagesModule,
+    SharedModule,
+    HttpClientModule
   ],  
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
+    [{
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
