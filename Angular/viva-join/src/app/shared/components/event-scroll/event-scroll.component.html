@@ -1,19 +1,19 @@
-<!-- <swiper-container      
-  slides-per-view="auto"
-  slides-per-group="4"
-  speed="700"
-  navigation="true"
-  allow-touch-move="false">
-  <swiper-slide *ngFor="let event of events; let i = index">
-    <a href="">
-      <img src="assets\images\imagenPrueba.jpeg" alt="" />
-      <span> {{ event }} </span>
+<swiper #swiper
+  [slidesPerView]="'auto'"
+  [navigation]="true"
+  [slidesPerGroup]="4"
+  [allowTouchMove]="false"
+  [speed]="700"
+  [spaceBetween]="15"  
+>
+  <ng-template swiperSlide
+    *ngFor="let event of events; let i = index"
+  >
+  <div #divSwiper class="div-swiper">
+    <a href="" (mouseenter)="animateSliders(i)" (mouseleave)="resetSliders(i)">
+      <img src="assets\images\imagenPrueba.jpeg" alt="" #slideImg />
+      <span #slideSpan> {{ event }} </span>
     </a>
-  </swiper-slide>
-</swiper-container> -->
-
-<swiper [slidesPerView]="3" [spaceBetween]="50">
-  <ng-template swiperSlide>Slide 1</ng-template>
-  <ng-template swiperSlide>Slide 2</ng-template>
-  <ng-template swiperSlide>Slide 3</ng-template>
+  </div>
+  </ng-template>
 </swiper>

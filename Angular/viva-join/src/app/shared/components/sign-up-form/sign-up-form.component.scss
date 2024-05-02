@@ -1,55 +1,95 @@
-#sign-up-form-container{
-    background-color: rgba(255, 166, 0, 0.151);
-    width: 35%;
-    border: 2px solid rgb(255, 136, 0);
-    border-radius: 12px;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  padding: 10px;
+  border: 1px solid black;
 }
 
-#sign-up-form-container input{
+.input-div,
+.name-surname,
+.date-div,
+.date-select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.name-surname,
+.date-select {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.name-surname,
+.input-div,
+.date-div {
+  margin-top: 20px;
+}
+
+.name-surname > .input-div {
+  margin-top: 0;
+  width: 49%;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+input {
+  width: 100%;
+  border: 1px solid black;
+
+  &:focus,
+  &.ng-valid {
     outline: none;
-    border: 2px solid rgb(192, 192, 192);
-    margin-top: 20px;
-    padding: 10px 0 10px 8px;    
-    border-radius: 12px;
+    border-color: green;
+  }
+
+  &.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
 }
 
-#sign-up-form-container div{
-    padding: 0;
+i,
+span {
+  position: absolute;
 }
 
-#name{
-    width: 40%;
-    margin-right: 10px;
+span {
+  font-size: 12px;
+  background-color: grey;
 }
 
-#sign-up-form-container input:focus{
-    border: 2px solid rgb(255, 136, 0);    
+.date-div {
+  align-items: end;  
 }
 
-#birth-date{
-    margin-top: 20px;
+select {
+  width: 31%;
+  border: 1px solid black;
+
+  &:focus,
+  &.ng-valid {
+    border-color: green;
+    outline: none;
+  }
+
+  &.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
 }
 
-#birth-date select{
-    width: 33%;
-    padding: 10px 0 10px 8px;
-    border-radius: 12px;
+.date-errors{
+    display: flex;
+    width: 100%;    
+    justify-content: end;
 }
 
-#birth-date select:first-child{
-    width: 30%;
-}
-
-#sign-up-button{
-    background-color: rgba(0, 38, 255, 0.700);
-    color: white;
-    margin: 20px 0 20px 0;     
-    padding: 15px 0 15px 9px;
-    border: none;
-    border-radius: 12px;
-    transition: background-color 0.2s ease;
-}
-
-#sign-up-button:hover{
-    background-color: rgba(0, 38, 255, 0.840);  
+button {
+  width: 70%;
+  margin: 25px 0 10px 0;
 }
