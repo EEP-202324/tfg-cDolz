@@ -59,34 +59,32 @@ span {
   position: absolute;
 }
 
-span {
-  font-size: 12px;
-  background-color: grey;
+#sign-up-form-container input:focus{
+    border: 2px solid rgb(255, 136, 0);    
 }
 
-.date-div {
-  align-items: end;  
+#birth-date{
+    margin-top: 20px;
 }
 
-select {
-  width: 31%;
-  border: 1px solid black;
-
-  &:focus,
-  &.ng-valid {
-    border-color: green;
-    outline: none;
-  }
-
-  &.ng-touched.ng-invalid {
-    border: 1px solid red;
-  }
+#birth-date select{
+    width: 33%;
+    padding: 10px 0 10px 8px;
+    border-radius: 12px;
 }
 
-.date-errors{
-    display: flex;
-    width: 100%;    
-    justify-content: end;
+#birth-date select:first-child{
+    width: 30%;
+}
+
+#sign-up-button{
+    background-color: rgba(0, 38, 255, 0.700);
+    color: white;
+    margin: 20px 0 20px 0;     
+    padding: 15px 0 15px 9px;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
 }
 
 button {
