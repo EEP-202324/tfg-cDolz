@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input
+    type="email"
+    placeholder="Correo electrónico"
+    formControlName="email"
+  />
+  <input type="password" placeholder="Contraseña" formControlName="password" />
+  <div class="button-span">
+    <button type="submit">Iniciar sesión</button>
+    <span *ngIf="errorMessage"> {{errorMessage}} </span>
+  </div>  
+  <a href="" class="text-center">¿Has olvidado la contraseña?</a>
+  <hr />
+  <button (click)="redirectToSignUp()">Crear nueva cuenta</button>
+</form>

@@ -1,0 +1,22 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    border: 1px solid black;
+    width: 20%;
+    height: 50px;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    width: 100%;
+}

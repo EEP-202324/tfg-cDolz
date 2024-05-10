@@ -1,0 +1,99 @@
+form {
+    display: flex;
+    flex-direction: column;    
+    width: 70%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+ .input-div, .textarea-div {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.textarea-div {
+    width: 100%;    
+}
+
+.duration-div {
+    display: flex;
+    flex-direction: row;
+    width: 50%;    
+    select {
+        width: 30%;
+    }
+
+    p {
+        margin: 0 10px;
+    }
+}
+
+textarea {
+    resize: none;    
+    height: 280px;
+}
+
+.event-dates-div {
+    display: flex;
+    flex-direction: row;    
+}
+
+.input-icon, .textarea-icon {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.textarea-icon {
+    align-items: start;
+}
+
+input, textarea {
+    width: 100%;
+    border: 1px solid black;
+
+    &:focus,
+    &.ng-valid {
+        outline: none;
+        border-color: green;
+    }
+
+    &.ng-touched.ng-invalid {
+        border: 1px solid red;
+    }
+}
+
+i,
+span {
+    position: absolute;
+}
+
+span {
+    font-size: 12px;
+    background-color: grey;
+}
+
+// .date-div {
+//     align-items: end;
+// }
+
+// select {
+//     width: 31%;
+//     border: 1px solid black;
+
+//     &:focus,
+//     &.ng-valid {
+//         border-color: green;
+//         outline: none;
+//     }
+
+//     &.ng-touched.ng-invalid {
+//         border: 1px solid red;
+//     }
+// }
+
+// button {
+//     width: 70%;
+//     margin: 25px 0 10px 0;
+// }
