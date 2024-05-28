@@ -22,7 +22,7 @@ export class MyValidators {
       const data = { email: control.value };
       return service.checkDuplicatedEmail(data).pipe(
         debounceTime(500),
-        map(response => response.emailExists ? { 'emailExists': true } : null)
+        map((response: any) => response.emailExists ? { 'emailExists': true } : null as any) // Add type assertion
       );
     };
   }
@@ -77,29 +77,23 @@ export class MyValidators {
     }
   }
 
-  static datesRegisterUnique(years: number[]) {
+  static datesRegisterUnique(getYears: () => number[]) {
     return (control: AbstractControl): {[key: string]: any} | null => {
       const dates = control.value;
-      const arrayOfDates: EventRegisterDateData[] = [];
-  
+      const years = getYears();
+      const arrayOfDates: EventRegisterDateData[] = [];      
       for (let i = 0; i < dates.length; i++) {
         const datesRegister = {
-          date: `${dates[i][0]}-${dates[i][1]}-${years[i]}`,
-          hour: `${dates[i][2]}:${dates[i][3]}`
-        };
-          
+          date: new Date(years[i], dates[i][1] - 1, dates[i][0], dates[i][2], dates[i][3])
+        };          
         const isDuplicate = arrayOfDates.some(existingDate => 
-          existingDate.date === datesRegister.date && 
-          existingDate.hour === datesRegister.hour
-        );
-          
+          existingDate.date.getTime() === datesRegister.date.getTime()
+        );          
         if (isDuplicate) {
           return { 'datesRegisterUnique': { value: control.value } };
-        }
-  
+        }  
         arrayOfDates.push(datesRegister);
-      }
-        
+      }      
       return null;
     };
   }

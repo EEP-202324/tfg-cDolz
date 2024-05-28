@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonService } from '../../../services/common.service';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './event-register-form.component.html',
   styleUrl: './event-register-form.component.scss'
 })
-export class EventRegisterFormComponent implements OnDestroy {
+export class EventRegisterFormComponent implements OnInit, OnDestroy {
 
   form!: FormGroup;
   register!: EventRegisterData;
@@ -40,7 +40,10 @@ export class EventRegisterFormComponent implements OnDestroy {
   showPeriodicityErrors: boolean = false;
   showDatesErrors: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private eventsService: EventsService, private commonService: CommonService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private eventsService: EventsService, private commonService: CommonService, private router: Router, private cdr: ChangeDetectorRef) {  
+  }
+
+  ngOnInit() {
     this.initForm();
   }
 
@@ -97,6 +100,7 @@ export class EventRegisterFormComponent implements OnDestroy {
       ((this.form.get('dates') as FormArray).at(i) as FormArray).push(this.formBuilder.control('00', Validators.required));
     }
     this.years = Array(this.fDatesArrays.length).fill(this.actualDate.getFullYear());
+    this.cdr.detectChanges();
   }
 
   initForm() {
@@ -111,7 +115,7 @@ export class EventRegisterFormComponent implements OnDestroy {
       organizer: ['', [Validators.required, MyValidators.trimValueAndCheck]],
       file: ['', [Validators.required]],
       periodicity: ['1', [Validators.required, Validators.min(1), MyValidators.maxEntries]],
-      dates: this.formBuilder.array([], MyValidators.datesRegisterUnique(this.years))
+      dates: this.formBuilder.array([], MyValidators.datesRegisterUnique(() => this.years))
     }, { validators: [MyValidators.minDuration] });
     this.updateNumberOfEntries();
   }
@@ -122,7 +126,7 @@ export class EventRegisterFormComponent implements OnDestroy {
     if (fileInput.files && fileInput.files.length > 0) {
       const file = fileInput.files[0];
       const fileType = file.type;
-      if (fileType.match(/image\/*/) == null) {
+      if (RegExp(/image\/*/).exec(fileType) == null) {
         // El archivo no es una imagen, marca el control como inválido
         this.form.get('file')?.setErrors({ notImage: true });
       } else {
@@ -138,9 +142,8 @@ export class EventRegisterFormComponent implements OnDestroy {
     this.arrayOfDates = [];
     for (let i = 0; i < dates.length; i++) {
       this.datesRegister = {
-        date: `${dates[i][0]}-${dates[i][1]}-${this.years[i]}`,
-        hour: `${dates[i][2]}:${dates[i][3]}`
-      };
+        date: new Date(this.years[i], dates[i][1] - 1, dates[i][0], dates[i][2], dates[i][3])                 
+      };      
       this.arrayOfDates.push(this.datesRegister);
     }
     this.register = {
@@ -160,7 +163,7 @@ export class EventRegisterFormComponent implements OnDestroy {
       next: () => {
         this.router.navigate(['home/success'], { queryParams: { from: this.router.url } });
       },
-      error: (error) => {
+      error: (error: any) => {
         this.errorMessage = error.error.message;
       }
     });
