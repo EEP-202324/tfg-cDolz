@@ -7,7 +7,6 @@ import { SuscriptionData } from '../../models/suscription.model';
 import { AuthService } from '../../services/auth.service';
 import Cookies from 'js-cookie';
 import { SubscriptionsService } from '../../services/subscriptions.service';
-import { MyValidators } from '../../utils/validators/validators';
 
 @Component({
   selector: 'app-event-detail',

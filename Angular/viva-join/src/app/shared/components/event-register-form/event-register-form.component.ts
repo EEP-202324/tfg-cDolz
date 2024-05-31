@@ -75,6 +75,7 @@ export class EventRegisterFormComponent implements OnInit, OnDestroy {
     return nextSixMonths;
   }
 
+  // como solo se registran eventos en el futuro a 6 meses vista, si se selecciona un mes anterior al actual, se añade un año
   changeYear(control: AbstractControl | null, i: number) {
     const selectedMonth = parseInt(control?.value);
     const currentMonth = this.actualDate.getMonth();
@@ -90,6 +91,7 @@ export class EventRegisterFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  //  se añaden controles en base a la periodicidad seleccionada
   updateNumberOfEntries() {
     (this.form.get('dates') as FormArray).clear();
     for (let i = 0; i < this.form.get('periodicity')?.value; i++) {

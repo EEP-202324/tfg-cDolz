@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+// Middleware para verificar si el token es válido
 const checkToken = (req, res, next) => {    
     if (!req.headers['authorization']) {
         console.log('Not Authorized');

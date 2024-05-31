@@ -1,6 +1,7 @@
 const EventDate = require('../models/eventDate.model');
 const Subscription = require('../models/subscription.model');
 
+// Función para limpiar la BBDD de eventos y suscripciones antiguas
 const cleanup = async () => {
     const now = new Date();
     

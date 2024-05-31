@@ -4,6 +4,7 @@ const Subscription = require('../../models/subscription.model');
 const Event = require('../../models/event.model');
 const EventDate = require('../../models/eventDate.model');
 
+// petición para crear una suscripción a un evento e incrementar su popularidad
 router.post('/subscribe', async (req, res, next) => {
     try {
         const { eventId, eventDateId } = req.body;
@@ -29,6 +30,7 @@ router.post('/subscribe', async (req, res, next) => {
     }
 });
 
+// petición para eliminar una suscripción a un evento y reducir su popularidad
 router.delete('/unsubscribe/:id', async (req, res, next) => {
     try {
         const id = decodeURIComponent(req.params.id);
@@ -61,6 +63,7 @@ router.delete('/unsubscribe/:id', async (req, res, next) => {
     }
 });
 
+// petición para obtener todas las suscripciones de un usuario
 router.get('/get-subscriptions/:userId', async (req, res, next) => {
     try {
         const userId = req.params.userId;

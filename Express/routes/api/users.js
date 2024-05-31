@@ -21,6 +21,7 @@ router.post('/sign-up', async (req, res, next) => {
     }
 });
 
+// petición para comprobar si un email ya existe
 router.post('/check-email', async (req, res, next) => {
     try {
         // Compruebo si el email ya existe en la BBDD
@@ -62,6 +63,7 @@ router.post('/login', async (req, res, next) => {
 
 });
 
+// petición para obtener un usuario por su email
 router.get('/user/:email', async (req, res, next) => {
     try {
         const user = await User.findOne({ email: req.params.email });

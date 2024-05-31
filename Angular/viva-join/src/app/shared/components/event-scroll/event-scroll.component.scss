@@ -24,7 +24,7 @@ swiper {
     width: 180px;
     display: flex;
     flex-flow: column;
-    margin: 12px 0 12px 0;
+    margin: 16px 0 12px 0;
     transition: transform 0.3s ease;
   }
 
@@ -47,7 +47,7 @@ swiper {
 
   .swiper-button-prev,
   .swiper-button-next {
-    color: black;
+    color: $tint-8;
     scale: 0.75;
   }
 }

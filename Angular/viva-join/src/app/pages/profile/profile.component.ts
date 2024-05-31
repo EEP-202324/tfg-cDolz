@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.unsubscribeId = id;
   }
 
+  // con este método se cancela la suscripción a un evento, petición de tipo DELETE
   unsubscribe(){
     this.subscriptionsService.eventUnsubscribe(this.unsubscribeId).pipe(takeUntil(this.unsubscribe$)).subscribe({
       next: () => {

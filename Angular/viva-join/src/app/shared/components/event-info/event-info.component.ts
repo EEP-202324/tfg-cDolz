@@ -11,5 +11,6 @@ export class EventInfoComponent {
   @Input() description!: string;
   @Input() duration!: any;
   @Input() location!: any;
+  @Input() organizer!: any;
   @Input() categorization!: any;
 }
